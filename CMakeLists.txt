@@ -1,6 +1,8 @@
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-cmake_minimum_required(VERSION 4.1)
+cmake_minimum_required(VERSION 3.1)
 
 project(chip8)
+
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
 add_executable(chip8 main.cc)
