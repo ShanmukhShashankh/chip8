@@ -30,7 +30,7 @@ int main() {
       lastCycleTime = currentTime;
 
       // Few instructions every frame
-      for(int i=0; i<10; i++){
+      for(int i=0; i<25; i++){
         chip8.cycle();
       }
 

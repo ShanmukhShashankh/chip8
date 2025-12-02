@@ -34,7 +34,7 @@ void Chip8::CPUReset() {
   memset(keypad, 0, sizeof(keypad));
 
   FILE *in;
-  in = fopen("/mnt/BambooCopter/Games/Space Invaders [David Winter].ch8", "rb");
+  in = fopen("/mnt/BambooCopter/Games/Landing.ch8", "rb");
   if (in) {
     fread(&gameMemory[0x200], 0xE00, 1, in);
     fclose(in);
