@@ -34,7 +34,7 @@ void Chip8::CPUReset() {
   memset(keypad, 0, sizeof(keypad));
 
   FILE *in;
-  in = fopen("/mnt/BambooCopter/Games/INVADERS", "rb");
+  in = fopen("/mnt/BambooCopter/Games/Space Invaders [David Winter].ch8", "rb");
   if (in) {
     fread(&gameMemory[0x200], 0xE00, 1, in);
     fclose(in);
@@ -251,7 +251,7 @@ void Chip8::decode(WORD opcode) {
       case 0x9E: // Ex9E | SKP Vx
       {
         BYTE Vx = opcode >> 8 & 0xF;
-        if (keypad[registers[Vx]] == 0xFF) {
+        if (keypad[registers[Vx]] != 0x0) {
           programCounter += 2;
         }
       } break;
@@ -259,7 +259,7 @@ void Chip8::decode(WORD opcode) {
       case 0xA1: // ExA1 | SKNP Vx
       {
         BYTE Vx = opcode >> 8 & 0xF;
-        if (keypad[registers[Vx]] != 0xFF) {
+        if (keypad[registers[Vx]] == 0x0) {
           programCounter += 2;
         }
       } break;
