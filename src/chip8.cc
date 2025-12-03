@@ -67,6 +67,10 @@ void Chip8::updateTimers() {
     soundTimer--;
 }
 
+bool Chip8::isSoundActive() {
+  return soundTimer > 0;
+}
+
 void Chip8::decode(WORD opcode) {
     switch (opcode >> 12) {
 

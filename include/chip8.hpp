@@ -8,6 +8,7 @@ class Chip8 {
     void cycle();
     void updateTimers();
     bool loadROM(char const* filename);
+    bool isSoundActive();
 
     BYTE keypad[16];
     BYTE screenData[32][64];
