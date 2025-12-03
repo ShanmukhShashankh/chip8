@@ -1,9 +1,5 @@
-#include <SDL_audio.h>
-#include <SDL_error.h>
-#include <SDL_stdinc.h>
 #include <chip8.hpp>
 #include <chrono> // timing
-#include <cstddef>
 #include <display.hpp>
 #include <iostream>
 #include <thread> // sleeping
