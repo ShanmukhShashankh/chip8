@@ -4,7 +4,12 @@
 #include <thread> // sleeping
 #include <iostream>
 
-int main() {
+int main(int argc, char** argv) {
+
+  if(argc != 2){
+    std::cerr << "Usage: ./<chip8> <path_to_rom>" << std::endl;
+    return 1;
+  }
   // Window Size: 960x480
   // Internal Resolution: 64x32
   std::cout << "Creating Window..." << std::endl;
@@ -12,6 +17,10 @@ int main() {
   std::cout << "Window Initialized" << std::endl;
   Chip8 chip8;
   chip8.CPUReset();
+
+  if(!chip8.loadROM(argv[1])){
+    return 1;
+  }
 
   uint32_t videoBuffer[64 * 32]; // because SDL needs 1D array
 

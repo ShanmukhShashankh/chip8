@@ -28,22 +28,28 @@ void Chip8::CPUReset() {
   addressI = 0;
   programCounter = 0x200; // Valid game address starts from 0x200
   stackPointer = -1;      // Reset Stack Pointer
+  delayTimer = 0;
+  soundTimer = 0;
   memset(registers, 0, sizeof(registers));
   memset(gameMemory, 0, sizeof(gameMemory));
   memset(screenData, 0, sizeof(screenData));
   memset(keypad, 0, sizeof(keypad));
 
+  // Font Data
+  memcpy(&gameMemory[0x50], &fontset, sizeof(fontset));
+}
+
+bool Chip8::loadROM(char const* filename){
   FILE *in;
-  in = fopen("/mnt/BambooCopter/Games/Landing.ch8", "rb");
+  in = fopen(filename, "rb");
   if (in) {
     fread(&gameMemory[0x200], 0xE00, 1, in);
     fclose(in);
+    return true;
   } else {
     std::cerr << "Failed to load ROM" << std::endl;
+    return false;
   }
-
-  // Font Data
-  memcpy(&gameMemory[0x50], &fontset, sizeof(fontset));
 }
 
 void Chip8::cycle() {

@@ -7,6 +7,7 @@ class Chip8 {
     void CPUReset(); 
     void cycle();
     void updateTimers();
+    bool loadROM(char const* filename);
 
     BYTE keypad[16];
     BYTE screenData[32][64];
