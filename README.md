@@ -104,7 +104,7 @@ The original Chip-8 used a hex keypad (0-F). This emulator maps them to the left
 
 ## Notes
 
-This emulator implements the standard Chip-8 behavior (optimized for Space Invaders). Some newer ROMs that rely on the "Shift Quirk" or "Load/Store Quirk" (like BRIX or BLITZ) may exhibit minor visual or logic glitches.
+This emulator implements the standard Chip-8 behavior. Some newer ROMs that rely on different behaviour of "Shift" or "Load/Store" instructions (like BRIX or BLITZ) may exhibit minor visual or logic glitches.
 
 ## License
 
